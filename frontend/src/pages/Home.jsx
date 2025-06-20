@@ -8,7 +8,7 @@ function Home() {
   const handleJoin = async () => {
     if (roomName.trim()) {
       try {
-        const res = await fetch("http://localhost:8000/", {
+        const res = await fetch("http://localhost:8000/joinroom/", {
           method: "POST",
           headers: {
             "Content-Type": "application/json",

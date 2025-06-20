@@ -15,10 +15,10 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from chatapp.views import home,room
+from chatapp.views import *
 urlpatterns = [
     path('admin/', admin.site.urls),
     path("",home),
-    path("home/",home),
+    path("joinroom/",Joinroom),
     path("chat/<str:room_name>/",room)
 ]
