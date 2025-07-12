@@ -23,7 +23,7 @@ const LandingPage = () => {
         <p style={styles.subtext}>
           Join any chat room and start talking instantly.
         </p>
-        <Link to="/home">
+        <Link to="/joinroom">
           <button style={styles.button}>Get Started</button>
         </Link>
       </div>
