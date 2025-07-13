@@ -3,21 +3,25 @@ import { verifyJwt } from "../utils/verifyToken.js";
 const authMiddleware = (req, res, next) => {
   const token =
     req.cookies?.token || req.headers.authorization?.replace("Bearer ", "");
-
+  console.log("1", token);
   if (!token) {
+    console.log("if", token);
     return res.status(403).json({
       message: "Unauthorized Access || Token is not Present",
     });
   }
-
+  console.log("2", token);
   try {
     const decodeToken = verifyJwt(token);
-
-    req.body.userId = decodeToken.userId;
-    req.body.email = decodeToken.email;
-
+    console.log("decode token", decodeToken);
+    // req.body.email = decodeToken.email;
+    req.user = {
+      email: decodeToken.email,
+      // userId: decodeToken.userId, // if needed
+    };
     next();
   } catch (error) {
+    console.log("catch", token);
     res
       .status(401)
       .clearCookie("token", {

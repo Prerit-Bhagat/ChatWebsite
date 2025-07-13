@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import Navbar from "../components/Navbar";
 
 function Home() {
   const [roomName, setRoomName] = useState("");
@@ -32,42 +33,45 @@ function Home() {
   };
 
   return (
-    <div
-      style={{
-        display: "flex",
-        flexDirection: "column",
-        alignItems: "center",
-        marginTop: "100px",
-      }}
-    >
-      <h2>Join a Chat Room</h2>
-      <input
-        type="text"
-        value={roomName}
-        onChange={(e) => setRoomName(e.target.value)}
-        placeholder="Enter room name"
+    <>
+      <Navbar />
+      <div
         style={{
-          padding: "8px",
-          width: "200px",
-          marginBottom: "10px",
-          border: "1px solid #ccc",
-          borderRadius: "4px",
-        }}
-      />
-      <button
-        onClick={handleJoin}
-        style={{
-          padding: "8px 16px",
-          backgroundColor: "#007bff",
-          color: "white",
-          border: "none",
-          borderRadius: "4px",
-          cursor: "pointer",
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "center",
+          marginTop: "100px",
         }}
       >
-        Join
-      </button>
-    </div>
+        <h2>Join a Chat Room</h2>
+        <input
+          type="text"
+          value={roomName}
+          onChange={(e) => setRoomName(e.target.value)}
+          placeholder="Enter room name"
+          style={{
+            padding: "8px",
+            width: "200px",
+            marginBottom: "10px",
+            border: "1px solid #ccc",
+            borderRadius: "4px",
+          }}
+        />
+        <button
+          onClick={handleJoin}
+          style={{
+            padding: "8px 16px",
+            backgroundColor: "#007bff",
+            color: "white",
+            border: "none",
+            borderRadius: "4px",
+            cursor: "pointer",
+          }}
+        >
+          Join
+        </button>
+      </div>
+    </>
   );
 }
 

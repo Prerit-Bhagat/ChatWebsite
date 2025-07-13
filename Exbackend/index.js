@@ -3,17 +3,11 @@ import bodyParser from "body-parser";
 import cookieParser from "cookie-parser";
 import rootRouter from "./routes/index.route.js";
 import { ConnectDb } from "./db/db.js"; // Import the DB connection
+import cors from "cors";
 
 const PORT = 4000;
 
 const app = express();
-
-app.use(bodyParser.json());
-app.use(express.json());
-app.use(cookieParser());
-
-// Routes
-app.use("/", rootRouter);
 
 // Start the server after DB connects
 ConnectDb()
@@ -25,3 +19,11 @@ ConnectDb()
   .catch(() => {
     console.error("Failed to connect and start the server.");
   });
+
+app.use(cors({ origin: "http://localhost:5173", credentials: true }));
+app.use(bodyParser.json());
+app.use(express.json());
+app.use(cookieParser());
+
+// Routes
+app.use("/", rootRouter);
