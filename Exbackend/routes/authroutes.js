@@ -12,12 +12,12 @@ const route = express.Router();
 // ✅ Cookie options for localhost (secure: false, sameSite: "Lax")
 const cookieOptions = {
   httpOnly: true,
-  secure: false, // ❗ Use false on localhost
-  sameSite: "Lax", // ❗ Use Lax for localhost dev
+  secure: false, // Use false on localhost
+  sameSite: "Lax", // Use Lax for localhost dev
   maxAge: 7 * 24 * 60 * 60 * 1000, // 7 days
 };
 
-// ✅ SIGNUP ROUTE
+// SIGNUP ROUTE
 route.post("/signup", signUpValidation, async (req, res) => {
   try {
     const { username, fullName, email, password, phoneNumber } = req.body;
@@ -60,7 +60,7 @@ route.post("/signup", signUpValidation, async (req, res) => {
   }
 });
 
-// ✅ SIGNIN ROUTE
+// SIGNIN ROUTE
 route.post("/signin", signInValidation, async (req, res) => {
   try {
     const { email, password } = req.body;
@@ -87,20 +87,20 @@ route.post("/signin", signInValidation, async (req, res) => {
   }
 });
 
-// ✅ LOGOUT ROUTE
+// LOGOUT ROUTE
 route.post("/logout", authMiddleware, (req, res) => {
   return res.status(200).clearCookie("token", cookieOptions).json({
     message: "User logged out successfully",
   });
 });
 
-// ✅ CHECK LOGIN ROUTE
+//  CHECK LOGIN ROUTE
 route.get("/checkLogin", authMiddleware, (req, res) => {
-  console.log("working");
+  // console.log("working");
   return res.status(200).json({ message: "User is already logged in" });
 });
 
-// ✅ GET USER NAME
+// GET USER NAME
 route.get("/name", authMiddleware, async (req, res) => {
   const name = await User.findOne({ email: req.body.email }).select(
     "fullName -_id"
@@ -108,7 +108,7 @@ route.get("/name", authMiddleware, async (req, res) => {
   return res.status(200).json({ fullName: name });
 });
 
-// ✅ GET USER DETAILS
+// GET USER DETAILS
 route.get("/details", authMiddleware, async (req, res) => {
   const details = await User.findOne({ email: req.body.email }).select(
     "-password -_id"
@@ -116,7 +116,7 @@ route.get("/details", authMiddleware, async (req, res) => {
   return res.status(200).json({ details });
 });
 
-// ✅ GLOBAL ERROR HANDLER
+// GLOBAL ERROR HANDLER
 route.use((err, req, res, next) => {
   console.log("Inside global error handler:", err);
   return res.status(500).json({
