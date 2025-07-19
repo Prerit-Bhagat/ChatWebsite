@@ -12,7 +12,7 @@ import django
 from channels.routing import ProtocolTypeRouter, URLRouter
 from channels.auth import AuthMiddlewareStack
 from django.core.asgi import get_asgi_application
-import chatapp.routing  # ✅ your actual app name
+import chatapp.routing  
 
 os.environ.setdefault("DJANGO_SETTINGS_MODULE", "chatweb.settings")
 django.setup()

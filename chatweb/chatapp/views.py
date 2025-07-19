@@ -10,8 +10,6 @@ import json
 from django.http import JsonResponse, HttpResponseRedirect
 from django.views.decorators.csrf import csrf_exempt
 
-def home(request):
-    return JsonResponse({"message": "Welcome to the chat application!"})
 
 @csrf_exempt
 def Joinroom(request):
