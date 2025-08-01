@@ -29,9 +29,9 @@ Chat-Website/
 ├── README.md            
 ├── package.json         
 
-## 🚀 Setup Instructions
+## 🚀 Setup
 
-### 1️⃣ Clone the Repository
+### Instructions - 
 ```bash
 git clone https://github.com/Prerit-Bhagat/Chat-Website.git
 cd Chat-Website
