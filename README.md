@@ -23,11 +23,11 @@ A basic real-time anonymous chat platform built with React, Django, and Express.
 
 ## 🗂 Folder Structure
 Chat-Website/
-├── Exbackend/           # Express.js backend for Authentication
-├── chatweb/             # Django backend (WebSocket/chat logic)
-├── frontend/            # React frontend (UI and WebSocket handling)
-├── README.md            
-├── package.json         
+- ├── Exbackend/           # Express.js backend for Authentication
+- ├── chatweb/             # Django backend (WebSocket/chat logic)
+- ├── frontend/            # React frontend (UI and WebSocket handling)
+- ├── README.md            
+- ├── package.json         
 
 ## 🚀 Setup
 
